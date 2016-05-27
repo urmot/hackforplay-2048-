@@ -30,7 +30,7 @@
 GameManager.prototype.move = function (direction) {
   var self = this;
 
-  if (this.isGameTerminated()) return; 
+  if (this.isGameTerminated()) return;
 
   var cell, tile;
 
@@ -62,14 +62,14 @@ GameManager.prototype.move = function (direction) {
                 |
                 |   ...ただ、諦めたら試合終了という言葉があるだろう。
                 |   ひたすらやり続けるのも精神修行になるかもしれない。
-                |   
+                |
                 |   健闘を祈る！！！
                 |
                 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
         if (next && next.value === tile.value && !next.mergedFrom && next.value != "×") {
-        
-          merged = new Tile(positions.next, tile.value * 2);//倍率
+
+          merged = new Tile(positions.next, tile.value * 1);//倍率
 
                 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
                 |
@@ -97,7 +97,7 @@ GameManager.prototype.move = function (direction) {
           self.grid.insertTile(merged);
 
           self.grid.removeTile(tile);
-         
+
           tile.updatePosition(positions.next);
 
           self.score += merged.value;
@@ -125,7 +125,7 @@ GameManager.prototype.move = function (direction) {
                 |   どこかでkachan()を召喚している奴がいる...
                 |   そいつを消し去ることができれば...!
                 |   ひょっとして...?
-                |   
+                |
                 |
                 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
@@ -133,27 +133,27 @@ GameManager.prototype.move = function (direction) {
 
 
          if (merged.value === 256){
-            // self.kachan();
+            self.kachan();
         };
                 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
                 |
                 |   この世界では カアチャンのように
                 |   ある場所から召喚されたものを
                 |   「「「 関数 」」」を呼ぶのだ。
-                |   
+                |
                 |   覚えておくといいだろう...
                 |
                 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 
                 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
-                |  
+                |
                 |   カアチャンには死んでも従いたくない！
                 |   そんな人もいるだろう...
                 |
                 |   そんな人は 諦めずカアチャンに逆らってみるといい
                 |   そしたら カアチャンも諦めてくれるかも...
-                |    
+                |
                 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 
@@ -180,7 +180,7 @@ GameManager.prototype.move = function (direction) {
                 |    言葉もある。その言葉に 書きかえることが
                 |    できれば　邪魔なブロックの出現を
                 |    止められるかもしれない!!!
-                |    
+                |
                 |    どんな手を 使ってもいい。
                 |   「ぎ(偽)」を調べるしかない!!
                 |
@@ -190,7 +190,7 @@ GameManager.prototype.move = function (direction) {
                 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
           if (merged.value === 512) {
-            // self.jama = true; //お邪魔タイル発生装置
+            self.jama = true; //お邪魔タイル発生装置
         };
 
 
@@ -198,7 +198,7 @@ GameManager.prototype.move = function (direction) {
                 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
                 |
                 |   「true」の反対の言葉はわかっただろうか...
-                |   
+                |
                 |   「true」に　ちなんでひとつ真実を教えよう...
                 |   この地獄に来たのは君で２人目だ...
                 |
@@ -236,7 +236,7 @@ GameManager.prototype.move = function (direction) {
                 |   ドラゴン(dragon)の ほのお(fire)で、
                 |   画面が見えなくなってしまった!!
                 |   なんとかして、ほのおを とめたいのだが...
-                |  
+                |
                 |   ここでひとつ魔法を授けよう...
                 |   「コメントアウト」という呪文じゃ。
                 |   この呪文は、「//」の後の文を
@@ -250,7 +250,7 @@ GameManager.prototype.move = function (direction) {
 
 
           if (merged.value === 1024) {
-              interval = setInterval('dragon()',100);  
+              interval = setInterval('dragon()',100);
         };
 
 
@@ -276,13 +276,13 @@ GameManager.prototype.move = function (direction) {
 
 
                 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
-                |  
+                |
                 |   【ボーナスステージ】
-                |   
+                |
                 |   よくぞここまできたな。冒険者よ。
                 |   少しはこの世界のこと、自分のチカラについて
                 |   理解できただろうか。
-                | 
+                |
                 |   そんな君に褒美を授けよう。
                 |   特別な技だ。
                 |   ゲームに戻って「b」と「c」を押してみろ。
@@ -314,13 +314,13 @@ GameManager.prototype.move = function (direction) {
           if (merged.value === 2048) {
           	self.won = true;
         	}
-        	
+
         } else {
             self.moveTile(tile, positions.farthest);
         }
 
         if (!self.positionsEqual(cell, tile)) {
-          moved = true; 
+          moved = true;
         }
       }
     });
